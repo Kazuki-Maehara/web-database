@@ -40,7 +40,7 @@ $resultCount -> free();
 		<td><input type="text" name="block[block_kana]" required></td>
 		<td>-- Automatic aquisition --</td>
 		<td>-- Automatic aquisition --</td>
-		<td><input type-"summit" value="Create!"></td>
+		<td><input type="submit" value="Create!"></td>
 	</tr>
 </form>
 </table><br>
@@ -70,7 +70,7 @@ $resultCount -> free();
 		echo "<td>".$rowBlock['created']."</td>";
 		echo "<td>".$rowBlock['modified']."</td>";
 		echo "<td><input type=\"submit\" value=\"Edit\"></td>";
-		echo "<input type\"hidden\" name=\"block[id]\" value=\"".$rowBlock['id']."\">";
+		echo "<input type=\"hidden\" name=\"block[id]\" value=\"".$rowBlock['id']."\">";
 		echo "</form>";
 		echo "</tr>";
 	}
