@@ -17,9 +17,9 @@
 	<h1>Block list</h1>
 	<p><?php
 //requesting data amount of block table
-$resultCount = $mysqli -> query("SELECT COUNT(*) AS cnt FROM user");
-$rowCount = $resultCount -> fetch_assoc();
-echo htmlentities($rowCount['cnt']."-data exist.");
+$resultCount = $mysqli -> query("SELECT COUNT(*) AS cnt FROM block");
+$rowCountBlock = $resultCount -> fetch_assoc();
+echo htmlentities($rowCountBlock['cnt']."-data exist.");
 $resultCount -> free();
 	?></p>
 
@@ -28,7 +28,7 @@ $resultCount -> free();
 <form action="reg_data.php" method="POST">
 	<tr>
 		<th>block_id</th>
-		<th>block_name</th>
+		<th>block_ username</th>
 		<th>block_kana</th>
 		<th>created</th>
 		<th>modified</th>
@@ -46,7 +46,7 @@ $resultCount -> free();
 </table><br>
 
 
-<?php if(rowCountBlock['cnt']): //if there is at least one data ?>
+<?php if($rowCountBlock['cnt']): //if there is at least one data ?>
 <h3>Data list</h3>
 <table border="1">
 	<tr>
@@ -166,14 +166,14 @@ $resultCountShop -> free();
 		echo "<td>".$rowShop['block_id']."</td>";
 		echo "<td>".$rowShop['created']."</td>";
 		echo "<td>".$rowShop['modified']."</td>";
-		echo "<td><input type=\"submit\" name=\"shop[id]\" value=\"".$rowShop['id']."\">";
+		echo "<td><input type=\"submit\" value=\"Edit\"></td>";
+		echo "<td><input type=\"hidden\" name=\"shop[id]\" value=\"".$rowShop['id']."\">";
 		echo "</form>";
 		echo "</tr>";
 	}
 
-	$esultShop -> free();
+	$resultShop -> free();
 ?>
-
 </table>
 <?php endif; ?>
 
@@ -222,7 +222,7 @@ $resultCountUser -> free();
 		<td>
 		<select name="user[permit]">
 			<option value="0">General</option>
-			<option value="0">Administrator</option>
+			<option value="1">Administrator</option>
 		</select>
 		</td>
 		<td>
@@ -256,10 +256,8 @@ $resultCountUser -> free();
 		<th>user_id</th>
 		<th>account</th>
 		<th>password</th>
-		<th>name_a</th>
-		<th>name_b</th>
-		<th>kana_a</th>
-		<th>kana_b</th>
+		<th>name</th>
+		<th>kana</th>
 		<th>permit</th>
 		<th>shop_id</th>
 		<th>created</th>
@@ -280,8 +278,6 @@ $resultCountUser -> free();
 		echo "<td>".$rowUser['name_a']." ".$rowUser['name_b']."</td>";
 		// concatanating phonetic text
 		echo "<td>".$rowUser['kana_a']." ".$rowUser['kana_b']."</td>";
-		echo "<td>".$rowUser['id']."</td>";
-		echo "<td>".$rowUser['id']."</td>";
 		if($rowUser['permit'] == 1) {
 			echo "<td>Administrator</td>";
 		} else {
