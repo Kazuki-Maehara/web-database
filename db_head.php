@@ -1,4 +1,15 @@
 <?php
+
+	session_start();
+	// verifying a connection
+	if(!isset($_SESSION['user_name'])) {
+		header("Location: login.php");
+		exit;
+	}
+
+
+
+
 	//connecting to database, "nsw"
 	$mysqli = new mysqli("localhost", "root", "271828", "nsw");
 

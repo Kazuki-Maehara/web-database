@@ -14,6 +14,10 @@
 	</style>
 </head>
 <body>
+<a href="menu.php">Back to menu</a>
+<br>
+<hr>
+
 	<h1>Block list</h1>
 	<p><?php
 //requesting data amount of block table
@@ -28,7 +32,7 @@ $resultCount -> free();
 <form action="reg_data.php" method="POST">
 	<tr>
 		<th>block_id</th>
-		<th>block_ username</th>
+		<th>block_ name</th>
 		<th>block_kana</th>
 		<th>created</th>
 		<th>modified</th>
